@@ -2,6 +2,11 @@ body {
   background-color: #f5f5f5;
   font-family: Arial, sans-serif;
 }
+.vr{
+  margin-left: -730px;
+  margin-top: -15px;
+  height: 40px;
+}
 .form-select{
   margin-left: -720px;
   margin-top: -18px;
@@ -15,6 +20,9 @@ body {
   width: 100px;
   height: 40px;
 }
+.bg-grey{
+  background-color: lightgray;
+}
 .filter{
   margin-left: -82px;
   margin-top: -18px;
@@ -23,12 +31,13 @@ body {
   font-size: 14px; 
   font-weight: bold;
 }
-#filter-all{
-  margin-left: -2px;
-  padding: 10px;
+#filter-all:hover,
+#filter-active:hover,
+#filter-completed:hover{
+  background-color: lightgrey !important;
 }
 #filter-all{
-  margin-left: 2px;
+  padding: 10px;
 }
 .task-card {
   background-color: #f7f1f1;
@@ -88,7 +97,7 @@ body {
 .action-icons .trash {
   color: red;
 }
-hr {
+.new {
   border-top: 2px solid black;
   width: 575px;
   margin-left: -20px;
@@ -144,6 +153,12 @@ hr {
     width: 100%;
     margin: 5px 0;
   }
+  .vr{
+    display: none !important;
+  }
+  #filter-all{
+    margin-top: 1px;
+  }
   .task-bg {
     width: 100%; 
     height: auto; 
@@ -165,7 +180,7 @@ hr {
     flex-direction: column; 
     background-color: white; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    min-height: 325px; 
+    min-height: 380px; 
     position: relative;
   }
   .task-bg {
@@ -208,7 +223,7 @@ hr {
   }
   .action-icons {
     position: absolute; 
-    top: 155px; 
+    top: 153px; 
     right: 30px; 
     display: flex; 
     gap: 10px; 
@@ -221,6 +236,7 @@ hr {
   .circular-slider {
     width: 30px;
     height: 15px;
+    margin-top: 2px;
     border-radius: 15px;
     background-color: #ccc;
     position: relative;
@@ -241,7 +257,9 @@ hr {
   .circular-slider.completed .slider-dot {
     transform: translateX(14px);
   }
-  hr {
-    display: none;
+  .new {
+    border: 2px solid black;
+    width: 365px;
   }
+  
 }

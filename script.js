@@ -16,7 +16,7 @@ const tasks = [
   {
     id: 3,
     title: "Train a Dragon",
-    description: "Become a dragon whisperer and train a majestic fire-breathing creature. Teach it tricks, agility, and even how to play fetch with sheep.Become a dragon whisperer and train a majestic fire-breathing creature. Teach it tricks, agility, and even how to play fetch with sheep.",
+    description: "Become a dragon whisperer and train a majestic fire-breathing creature. Teach it tricks, agility, and even how to play fetch with sheep.",
     timestamp: "Jan 20, 1970 2:02 PM",
     completed: false,
   },
@@ -73,6 +73,7 @@ const tasks = [
 let currentFilter = "all"; 
 let taskToDeleteId = null; 
 let taskToEditId = null;
+let currentSort = "newest";
 function renderTasks() {
   const taskList = document.getElementById("task-list");
   taskList.innerHTML = ""; 
@@ -81,6 +82,15 @@ function renderTasks() {
     if (currentFilter === "active") return !task.completed;
     if (currentFilter === "completed") return task.completed;
   });
+  if (currentSort === "newest") {
+    filteredTasks.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  } else if (currentSort === "oldest") {
+    filteredTasks.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+  } else if (currentSort === "newest-updated") {
+    filteredTasks.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  } else if (currentSort === "oldest-updated") {
+    filteredTasks.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+  }
   filteredTasks.forEach((task) => {
     const taskCard = document.createElement("div");
     taskCard.className = `task-card ${task.completed ? "completed" : ""}`;
@@ -97,7 +107,7 @@ function renderTasks() {
         <h5 class="task-title">${task.title}</h5>
         <hr class="new"/>
         <p class="task-desc">${task.description}</p>
-        <small class="task-timestamp bi bi-clock ">${task.timestamp}</small>
+        <small class="task-timestamp bi bi-clock ">${task.timestamp} ${task.completed ? "(Updated)" : ""}</small>
       </div>
     `;
     taskList.appendChild(taskCard);
@@ -128,6 +138,7 @@ function saveEditedTask() {
     if (task) {
       task.title = title;
       task.description = description;
+      task.timestamp = new Date().toLocaleString();
       renderTasks();
       clearEditTaskModal();
     }
@@ -171,6 +182,10 @@ document.getElementById('filter-completed').addEventListener('click', () => {
   currentFilter = "completed";
   renderTasks();
 });
+document.getElementById('sortSelect').addEventListener('change', (event) => {
+  currentSort = event.target.value; 
+  renderTasks(); 
+});
 function showAddTaskModal() {
   const addTaskModal = new bootstrap.Modal(document.getElementById('addTaskModal'));
   addTaskModal.show();
@@ -203,3 +218,23 @@ document.getElementById('addTaskButton').addEventListener('click', addTask);
 document.querySelector('.btn-dark').addEventListener('click', showAddTaskModal);
 document.getElementById('saveEditTaskButton').addEventListener('click', saveEditedTask);
 renderTasks();
+
+const all=document.getElementById("filter-all");
+const active=document.getElementById("filter-active");
+const complete=document.getElementById("filter-completed");
+all.addEventListener("click",function(){
+    all.classList.add('bg-grey')
+    active.classList.remove('bg-grey')
+    complete.classList.remove('bg-grey')
+    
+})
+active.addEventListener("click",function(){
+    active.classList.add('bg-grey')
+    all.classList.remove('bg-grey')
+    complete.classList.remove('bg-grey')
+})
+complete.addEventListener("click",function(){
+    complete.classList.add('bg-grey')
+    all.classList.remove('bg-grey')
+    active.classList.remove('bg-grey')
+})

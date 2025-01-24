@@ -16,9 +16,12 @@
                 <button id="filter-active" class="btn me-1">Active</button>
                 <button id="filter-completed" class="btn">Completed</button>
             </div>
-            <select class="form-select">
-                <option>Newest First</option>
-                <option>Oldest First</option>
+            <div class="vr"></div>
+            <select class="form-select" id="sortSelect">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="newest-updated">Newest Updated First</option>
+                <option value="oldest-updated">Oldest Updated First</option>
             </select>
             <button class="btn btn-dark create-task">New Todo</button>
         </header>
