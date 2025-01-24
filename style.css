@@ -118,3 +118,130 @@ hr {
 .circular-slider.completed .slider-dot {
   transform: translateX(20px);
 }
+@media (max-width: 390px) {
+  .filter{
+    display: flex;
+    flex-direction: row !important;
+  }
+  .form-select {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .create-task {
+    margin-right: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .filter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2px;
+    margin-left: 2px;
+  }
+  #filter-all, #filter-active, #filter-completed {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .task-bg {
+    width: 100%; 
+    height: auto; 
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  .content {
+    width: 100%; 
+    padding: 10px; 
+  }
+  .task-card {
+    width: 100%; 
+    max-width: 100%;
+    margin: 15px 0; 
+    padding: 10px; 
+    border-radius: 15px; 
+    display: flex;
+    flex-direction: column; 
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    min-height: 325px; 
+    position: relative;
+  }
+  .task-bg {
+    width: 100%; 
+    height: auto; 
+    max-height: 150px;
+    object-fit: cover; 
+    border-radius: 10px 10px 0 0; 
+  }
+  .content {
+    width: 100%; 
+    padding: 10px; 
+    display: flex;
+    flex-direction: column; 
+    gap: 5px; 
+  }
+  .task-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 5px; 
+  }
+  .task-title {
+    font-size: 1rem; 
+    font-weight: bold;
+    margin: 0; 
+    overflow-wrap: break-word;
+    width: 130%;
+  }
+  .task-desc {
+    font-size: 0.9rem;
+    color: #666; 
+    margin: 0; 
+    line-height: 1.4;
+    width: 200%; 
+  }
+  .task-timestamp {
+    font-size: 0.8rem; 
+    color: #aaa; 
+  }
+  .action-icons {
+    position: absolute; 
+    top: 155px; 
+    right: 30px; 
+    display: flex; 
+    gap: 10px; 
+    z-index: 1; 
+  }
+  .completed .action-icons {
+    opacity: 1; 
+    visibility: visible; 
+  }
+  .circular-slider {
+    width: 30px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #ccc;
+    position: relative;
+  }
+  .circular-slider.completed {
+    background-color: #000033;
+  }
+  .slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 1.5px;
+    left: 2px;
+    transition: transform 0.3s;
+  }
+  .circular-slider.completed .slider-dot {
+    transform: translateX(14px);
+  }
+  hr {
+    display: none;
+  }
+}

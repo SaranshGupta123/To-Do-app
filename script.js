@@ -100,7 +100,6 @@ function renderTasks() {
         <small class="task-timestamp bi bi-clock ">${task.timestamp}</small>
       </div>
     `;
-
     taskList.appendChild(taskCard);
   });
 }
